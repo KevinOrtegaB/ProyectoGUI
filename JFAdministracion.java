@@ -1,7 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-public class JFAdministracion extends JFrame 
+import java.awt.event.*;
+public class JFAdministracion extends JFrame implements ActionListener
 {
     //definimos atributos del formulario
     private JPanel p1,p2,p3;
@@ -78,7 +79,7 @@ public class JFAdministracion extends JFrame
        //Crear los elementos graficos del panel 3
        lblValor = new JLabel("valor pagar");
        txtValor = new JTextArea("");
-       btnCalcular = new JButton("calcular");
+       btnCalcular = new JButton("Calcular");
        btnLimpiar = new JButton("Limpiar");
        
        p3.add(lblValor);
@@ -86,6 +87,24 @@ public class JFAdministracion extends JFrame
        p3.add(btnCalcular);
        p3.add(btnLimpiar);
     }
-    
+    //Implementamos la escucha a los botones
+    public void actionPerformed(ActionEvent evento){
+      
+           
+      String comando = evento.getActionCommand();      
+      if(comando.equals("Buscar")){
+          Propiedad p = new Propiedad(txtNombre.getText(),txtPropietario.getText(),Double.parseDouble(txtArea.getText()),Integer.parseInt(txtHabitantes.getText()));
+           }else if(comando.equals("Calcular")){
+         
+              }else if (comando.equals("Limpiar")){
+            
+              txtNombre .setText("");
+              txtPropietario.setText(" ");
+              txtArea.setText(" ");
+              txtHabitantes.setText(" ");
+              txtValor.setText(" ");
+        
+              }
+    }
     
 }
